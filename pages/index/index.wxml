@@ -1,0 +1,19 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 顶部轮播 -->
+  <swiper indicator-dots="true"
+    autoplay="true" interval="3000" duration="1000" class='swiper' circular="true">
+    <block wx:for="{{imgUrls}}" wx:key="*this">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" width="355" height="150"/>
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- 底部导航 -->
+  <view class="bottom-nav">
+
+    <navigator url="/pages/my/index?title=我的" hover-class="other-navigator-hover">我的</navigator>
+    <navigator url="/pages/other/index" hover-class="other-navigator-hover">其他</navigator>
+
+  </view>
+</view>

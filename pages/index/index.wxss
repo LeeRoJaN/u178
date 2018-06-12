@@ -1,0 +1,7 @@
+/**index.wxss**/
+.swiper{
+  width: 100%;
+}
+swiper-item{
+  text-align: center;
+}
