@@ -1,19 +1,35 @@
 <!--index.wxml-->
 <view class="container">
   <!-- 顶部轮播 -->
-  <swiper indicator-dots="true"
-    autoplay="true" interval="3000" duration="1000" class='swiper' circular="true">
-    <block wx:for="{{imgUrls}}" wx:key="*this">
-      <swiper-item>
-        <image src="{{item}}" class="slide-image" width="355" height="150"/>
-      </swiper-item>
-    </block>
-  </swiper>
+  <view class="sw-wrap">
+    <button class="sw-btn-pre" bindtap='bannerPre'></button>
+    <swiper indicator-dots="true" duration="1000" class='swiper' circular="true" bindchange="isChanging" bindanimationfinish="isChanged">
+      <block wx:for="{{topBanner}}" wx:key="*this">
+        <swiper-item>
+          <text class="sw-title">{{item.title}}</text>
+          <image src="{{item.url}}" class="slide-image" width="355" height="150"/>
+          <text class="sw-text">{{item.text}}</text>
+        </swiper-item>
+      </block>
+    </swiper>
+    <button class="sw-btn-next" bindtap='bannerNext'></button>
+  </view>
+  <!-- 房间时间表 -->
+  <view class="room-time">
+      <view class="time-list">
+        <text class="{{index==timeCurr?'ind':''}}" wx:for="{{timeList}}" wx:key="*this" bindtap='changeTimeList' data-index="{{index}}">{{item.t}}</text>
+       </view>
+       <view class="room-list">
+
+       </view>
+  </view>
+
   <!-- 底部导航 -->
   <view class="bottom-nav">
-
-    <navigator url="/pages/my/index?title=我的" hover-class="other-navigator-hover">我的</navigator>
-    <navigator url="/pages/other/index" hover-class="other-navigator-hover">其他</navigator>
-
+    <navigator url="/pages/my/index?title=我的" hover-class="other-navigator-hover">首页</navigator>
+    <navigator url="/pages/other/index" hover-class="other-navigator-hover">开车</navigator>
+    <navigator url="/pages/my/index?title=我的" hover-class="other-navigator-hover">我</navigator>
   </view>
+
+
 </view>

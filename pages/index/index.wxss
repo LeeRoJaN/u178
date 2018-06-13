@@ -1,7 +1,47 @@
 /**index.wxss**/
-.swiper{
+.sw-wrap{
   width: 100%;
-}
-swiper-item{
+  background: #3e3737;
   text-align: center;
+  height: 260px;
+  padding-top: 20px;
+}
+.sw-wrap button{
+  width: 40px;
+  height: 240px;
+  background: #eee;
+  display: inline-block;
+  padding: 0;
+}
+.sw-wrap .swiper{
+  display: inline-block;
+  width: 320px;
+  height: 240px;
+  margin: 0 auto;
+  background: #fff;
+}
+.sw-wrap swiper-item{
+  text-align: center;
+}
+swiper-item image{
+  width: 280px;
+  height: 150px;
+  margin-top: 40px;
+}
+ swiper-item text{
+  position: absolute;
+  left: 20px;
+  font-size: 18px;
+} 
+swiper-item text.sw-title{
+  top:10px;
+}
+swiper-item text.sw-text{
+  top:195px;
+}
+
+
+
+.time-list .ind{
+  text-decoration: underline;
 }
