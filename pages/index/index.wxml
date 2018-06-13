@@ -3,7 +3,7 @@
   <!-- 顶部轮播 -->
   <view class="sw-wrap">
     <button class="sw-btn-pre" bindtap='bannerPre'></button>
-    <swiper indicator-dots="true" duration="1000" class='swiper' circular="true" bindchange="isChanging" bindanimationfinish="isChanged">
+    <swiper indicator-dots="true" current="{{bannerCurr}}" duration="1000" class='swiper' circular="true" bindchange="isChanging" bindanimationfinish="isChanged">
       <block wx:for="{{topBanner}}" wx:key="*this">
         <swiper-item>
           <text class="sw-title">{{item.title}}</text>

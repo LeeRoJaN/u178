@@ -83,17 +83,28 @@ Page({
   bannerNext: function (e) {
     console.log('next');
     let { bannerCurr } = this.data;
-    console.log(this.data);
-    this.setData({
-      bannerCurr
-    })
+    // console.log(this.data);
+    // this.setData({
+      // bannerCurr
+    // })
+    var that = this;
+
+    if (this.data.bannerCurr === e.target.dataset.current) {
+      return false;
+    } else {
+      that.setData({
+        bannerCurr: e.target.dataset.current
+      })
+    } 
   },
   isChanging:function(e){
+    var that = this;
+    that.setData({ bannerCurr: e.detail.current }); 
     // console.log(e.detail.current);
-    this.setData({
-      bannerIsChanged: false,
-      bannerIsChanging: true
-    })
+    // this.setData({
+    //   bannerIsChanged: false,
+    //   bannerIsChanging: true
+    // })
   },
   isChanged:function(e){
     console.log(e.detail.current);
