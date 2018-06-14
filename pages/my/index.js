@@ -1,4 +1,5 @@
 // pages/my/index.js
+
 Page({
 
   /**
@@ -12,7 +13,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    wx.setNavigationBarTitle({
+      title: '我的信息中心'
+    })
   },
 
   /**
@@ -62,5 +65,11 @@ Page({
    */
   onShareAppMessage: function () {
   
-  }
+  },
+  onGotUserInfo: function (e) {
+    console.log(e)
+    console.log(e.detail.userInfo)
+    console.log(e.detail.rawData)
+  },
+
 })

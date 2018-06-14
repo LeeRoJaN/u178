@@ -1,2 +1,16 @@
 <!--pages/my/index.wxml-->
-<text>pages/my/index.wxml</text>
+
+<view class="container">
+  <view class="info">
+    <open-data type="userAvatarUrl"></open-data>
+    <open-data type="userNickName" lang="zh_CN"></open-data>
+    <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">获取用户信息</button>
+  </view>
+  <!-- 底部导航 -->
+  <view class="bottom-nav">
+    <navigator url="/pages/index/index?title=我的" hover-class="other-navigator-hover">首页</navigator>
+    <navigator url="/pages/other/index" hover-class="other-navigator-hover">开车</navigator>
+    <navigator url="/pages/my/index?title=我的" hover-class="other-navigator-hover">我</navigator>
+  </view>
+
+</view>

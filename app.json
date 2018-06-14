@@ -6,10 +6,11 @@
     "pages/my/index"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#eeeeee",
     "navigationBarTitleText": "u178",
     "navigationBarTextStyle": "black",
-    "backgroundColor": "#eeeeee"
+    "backgroundColor": "#eeeeee",
+    "enablePullDownRefresh":true
   }
 }

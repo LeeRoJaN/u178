@@ -3,12 +3,16 @@
 const app = getApp()
 
 Page({
+    /**
+   * 页面的初始数据
+   */
   data: {
 
     timeCurr:0,//日期当前展示的下标
     bannerCurr: 0,//banner位当前展示的下标
     bannerIsChanging:false,
     bannerIsChanged:true,
+
     // imgUrls: [
     //   'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
     //   'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
@@ -30,18 +34,27 @@ Page({
         url: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
         text: '阿萨德发射点发蜡炬森'
       }
-      ],
-      timeList:[
-        {
-          t:"2018-05-21",
-        },
-        {
-          t: "2018-05-22",
-        },
-        {
-          t: "2018-05-23",
-        }
-      ],
+    ],
+    timeList:[
+      {
+        time:"2018-05-21",
+        title: '标题党已',
+        url: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+        text: '阿萨德发射点发蜡炬森'
+      },
+      {
+        time: "2018-05-22",
+        title: '标题党而',
+        url: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+        text: '阿萨德发射点发蜡炬森'
+      },
+      {
+        time: "2018-05-23",
+        title: '标题党三',
+        url: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+        text: '阿萨德发射点发蜡炬森'
+      }
+    ],
   },
   //事件处理函数
   bindViewTap: function() {
@@ -49,6 +62,9 @@ Page({
       url: '../logs/logs'
     })
   },
+   /**
+   * 生命周期函数--监听页面加载
+   */
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({
@@ -77,45 +93,73 @@ Page({
       })
     }
   },
+  /**
+   * 上一个bannber
+   */
+  //
   bannerPre:function(e){
+    let { bannerCurr, bannerIsChanging } = this.data;
 
-  },
-  bannerNext: function (e) {
-    console.log('next');
-    let { bannerCurr } = this.data;
-    // console.log(this.data);
-    // this.setData({
-      // bannerCurr
-    // })
-    var that = this;
-
-    if (this.data.bannerCurr === e.target.dataset.current) {
-      return false;
-    } else {
+    if (!bannerIsChanging) {
+      var that = this;
+      let curr = bannerCurr - 1;
+      if(curr < 0 ){
+        curr = 2;
+      }
       that.setData({
-        bannerCurr: e.target.dataset.current
+        bannerCurr: curr
       })
-    } 
+    }
   },
+  /**
+   * 下一个bannber
+   */
+   //
+  bannerNext: function (e) {
+    let { bannerCurr, bannerIsChanging } = this.data;
+    console.log(bannerCurr);
+    if (!bannerIsChanging){
+      var that = this;
+      let curr = bannerCurr + 1;
+      if(curr > 2){
+        curr = 0;
+      }
+      that.setData({
+        bannerCurr: curr
+      })
+    }
+  },
+  /**
+   * banner状态
+   */
+  //
   isChanging:function(e){
+    let { bannerIsChanging } = this.data;
     var that = this;
-    that.setData({ bannerCurr: e.detail.current }); 
-    // console.log(e.detail.current);
-    // this.setData({
-    //   bannerIsChanged: false,
-    //   bannerIsChanging: true
-    // })
-  },
-  isChanged:function(e){
-    console.log(e.detail.current);
-    this.setData({
-      bannerIsChanged: true,
-      bannerIsChanging: false,
+    that.setData({
+      bannerIsChanging: true
     })
   },
-  // 时间节点切换
+  /**
+   * banner状态更新
+   */
+  //
+  isChanged:function(e){
+    let { bannerCurr, bannerIsChanging} = this.data;
+    var that = this;
+    console.log(e.detail);
+    that.setData({
+      bannerIsChanging:false,
+      bannerCurr : e.detail.current
+    })
+  },
+  /**
+   * 时间节点切换
+   */
+  // 
   changeTimeList:function(e){
     // console.log(e.target.dataset.index);
+    // let { timeCurr } = this.data;
     var ind = e.target.dataset.index;
     if (ind != this.timeCurr){
       this.setData({
@@ -123,7 +167,26 @@ Page({
       })
     }
   },
-  // 获取用户信息
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  timeChanging:function(e){
+
+  },
+  timeChanged:function(e){
+    let { timeCurr } = this.data;
+    
+    var ind = e.detail.current;
+    var that = this;
+
+    that.setData({
+      timeCurr: ind
+    })
+  },
+  /**
+   * 获取用户信息
+   */
+  // 
   getUserInfo: function(e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
@@ -131,5 +194,12 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  /**
+   * 下拉刷新
+   */
+  onPullDownRefresh: function () {
+    console.log('onPullDownRefresh');
+    wx.stopPullDownRefresh()//停止当前页面下拉刷新
   },
 })

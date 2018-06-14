@@ -45,3 +45,9 @@ swiper-item text.sw-text{
 .time-list .ind{
   text-decoration: underline;
 }
+.room-list{
+
+}
+.room-list .room-swiper{
+
+}

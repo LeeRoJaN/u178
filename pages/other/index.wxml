@@ -1,2 +1,12 @@
 <!--pages/other/index.wxml-->
-<text>pages/other/index.wxml</text>
+<view class="container">
+
+
+  <!-- 底部导航 -->
+  <view class="bottom-nav">
+    <navigator url="/pages/index/index?title=我的" hover-class="other-navigator-hover">首页</navigator>
+    <navigator url="/pages/other/index" hover-class="other-navigator-hover">开车</navigator>
+    <navigator url="/pages/my/index?title=我的" hover-class="other-navigator-hover">我</navigator>
+  </view>
+
+</view>
