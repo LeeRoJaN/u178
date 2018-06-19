@@ -2,15 +2,14 @@
 
 <view class="container">
   <view class="info">
-    <open-data type="userAvatarUrl"></open-data>
-    <open-data type="userNickName" lang="zh_CN"></open-data>
-    <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">获取用户信息</button>
+    <image src="{{userInfo.avatarUrl}}"></image>
+    <text>{{userInfo.nickName}}</text>
   </view>
   <!-- 底部导航 -->
   <view class="bottom-nav">
-    <navigator url="/pages/index/index?title=我的" hover-class="other-navigator-hover">首页</navigator>
-    <navigator url="/pages/other/index" hover-class="other-navigator-hover">开车</navigator>
-    <navigator url="/pages/my/index?title=我的" hover-class="other-navigator-hover">我</navigator>
+    <button class="" data-index="0" bindtap='changePage'>首页</button>
+    <button class="" data-index="1" bindtap='changePage'>开车</button>
+    <button class="" data-index="2"open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">我</button>
   </view>
 
 </view>

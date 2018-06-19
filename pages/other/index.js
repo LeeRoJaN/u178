@@ -1,5 +1,5 @@
 // pages/other/index.js
-
+const app = getApp()
 Page({
 
   /**
@@ -65,6 +65,33 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  changePage: function (e) {
+    let ind = e.target.dataset.index;
+    console.log(ind);
+    let u;
+    if (ind == 0) {
+      u = '/pages/index/index';
+    } else if (ind == 1) {
+      u = '/pages/other/index';
+    }
+    console.log(u);
+    wx.navigateTo({
+      url: u
+    })
+  },
+  onGotUserInfo: function (e) {
+    console.log(e.detail.userInfo);
+    if (app.globalData.userInfo == null) {
+      app.globalData.userInfo = e.detail.userInfo
+      this.setData({
+        userInfo: e.detail.userInfo,
+        hasUserInfo: true
+      })
+    }
+    wx.navigateTo({
+      url: '/pages/my/index'
+    })
   }
 
 })

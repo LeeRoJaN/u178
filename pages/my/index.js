@@ -1,12 +1,12 @@
 // pages/my/index.js
-
+var app = getApp();//取得全局App({..})实例
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    userInfo: {}
   },
 
   /**
@@ -16,6 +16,7 @@ Page({
     wx.setNavigationBarTitle({
       title: '我的信息中心'
     })
+      // console.log(app.globalData.userInfo);
   },
 
   /**
@@ -29,7 +30,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    this.setData({
+      userInfo: app.globalData.userInfo
+    })
+    // console.log(app.globalData.userInfo);
   },
 
   /**
@@ -66,10 +70,30 @@ Page({
   onShareAppMessage: function () {
   
   },
-  onGotUserInfo: function (e) {
-    console.log(e)
-    console.log(e.detail.userInfo)
-    console.log(e.detail.rawData)
+  changePage: function (e) {
+    let ind = e.target.dataset.index;
+    console.log(ind);
+    let u;
+    if (ind == 0) {
+      u = '/pages/index/index';
+    } else if (ind == 1) {
+      u = '/pages/other/index';
+    }
+    wx.navigateTo({
+      url: u
+    })
   },
-
+  onGotUserInfo: function (e) {
+    console.log(e.detail.userInfo);
+    if (app.globalData.userInfo == null){
+      app.globalData.userInfo = e.detail.userInfo
+      this.setData({
+        userInfo: e.detail.userInfo,
+        hasUserInfo: true
+      })
+    }
+    wx.navigateTo({
+      url: '/pages/my/index'
+    })
+  }
 })

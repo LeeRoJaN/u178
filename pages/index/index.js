@@ -101,7 +101,7 @@ Page({
     let { bannerCurr, bannerIsChanging } = this.data;
 
     if (!bannerIsChanging) {
-      var that = this;
+      let that = this;
       let curr = bannerCurr - 1;
       if(curr < 0 ){
         curr = 2;
@@ -119,7 +119,7 @@ Page({
     let { bannerCurr, bannerIsChanging } = this.data;
     console.log(bannerCurr);
     if (!bannerIsChanging){
-      var that = this;
+      let that = this;
       let curr = bannerCurr + 1;
       if(curr > 2){
         curr = 0;
@@ -135,7 +135,7 @@ Page({
   //
   isChanging:function(e){
     let { bannerIsChanging } = this.data;
-    var that = this;
+    let that = this;
     that.setData({
       bannerIsChanging: true
     })
@@ -146,7 +146,7 @@ Page({
   //
   isChanged:function(e){
     let { bannerCurr, bannerIsChanging} = this.data;
-    var that = this;
+    let that = this;
     console.log(e.detail);
     that.setData({
       bannerIsChanging:false,
@@ -160,7 +160,7 @@ Page({
   changeTimeList:function(e){
     // console.log(e.target.dataset.index);
     // let { timeCurr } = this.data;
-    var ind = e.target.dataset.index;
+    let ind = e.target.dataset.index;
     if (ind != this.timeCurr){
       this.setData({
         timeCurr: ind
@@ -176,8 +176,8 @@ Page({
   timeChanged:function(e){
     let { timeCurr } = this.data;
     
-    var ind = e.detail.current;
-    var that = this;
+    let ind = e.detail.current;
+    let that = this;
 
     that.setData({
       timeCurr: ind
@@ -193,6 +193,33 @@ Page({
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
+    })
+  },
+  changePage:function(e){
+    let ind = e.target.dataset.index;
+    console.log(ind);
+    let u;
+    if(ind == 0){
+      u = '/pages/index/index';
+    }else if(ind == 1){
+      u = '/pages/other/index';
+    }
+    wx.navigateTo({
+      url: u
+    })
+  },
+  onGotUserInfo:function(e){
+    console.log(e.detail.userInfo);
+    console.log(app.globalData.userInfo);
+    if (app.globalData.userInfo == null) {
+      app.globalData.userInfo = e.detail.userInfo
+      this.setData({
+        userInfo: e.detail.userInfo,
+        hasUserInfo: true
+      })
+    }
+    wx.navigateTo({
+      url: '/pages/my/index'
     })
   },
   /**
