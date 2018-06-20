@@ -7,7 +7,7 @@
   padding-top: 20px;
 }
 .sw-wrap button{
-  width: 40px;
+  width: 8%;
   height: 240px;
   background: #eee;
   display: inline-block;
@@ -15,7 +15,7 @@
 }
 .sw-wrap .swiper{
   display: inline-block;
-  width: 320px;
+  width: 84%;
   height: 240px;
   margin: 0 auto;
   background: #fff;
@@ -23,31 +23,85 @@
 .sw-wrap swiper-item{
   text-align: center;
 }
-swiper-item image{
+.sw-wrap swiper-item image{
   width: 280px;
   height: 150px;
   margin-top: 40px;
 }
- swiper-item text{
+.sw-wrap swiper-item text{
   position: absolute;
   left: 20px;
   font-size: 18px;
 } 
-swiper-item text.sw-title{
+.sw-wrap swiper-item text.sw-title{
   top:10px;
 }
-swiper-item text.sw-text{
+.sw-wrap swiper-item text.sw-text{
   top:195px;
 }
 
-
+.room-time{
+  width: 96%;
+}
 
 .time-list .ind{
   text-decoration: underline;
 }
 .room-list{
-
+  width: 100%;
 }
 .room-list .room-swiper{
 
+}
+.room-list swiper-item{
+  line-height: 26px;
+}
+.room-list .stext{
+  font-size: 16px;
+}
+.room-list .sw-que{
+  position: absolute;
+  right: 3%;
+  top: 10%;
+  background-color: #fff;
+  border-radius: 100%;
+  padding: 3%;
+  font-size: 14px;
+  line-height: 120%;
+  text-align: center;
+}
+.room-list .sw-price{
+  position: absolute;
+  right: 3%;
+  top: 60%;
+  color: #F44336;
+  font-size: 16px;
+}
+.room-time swiper{
+  height: 450px;
+}
+.room-list .plist{
+  background-color: #FFC107;
+  padding: 10px;
+  margin-bottom: 10px;
+  position: relative;
+}
+/* 商品列表 */
+.goodsList{
+
+}
+.goodsList .g-title{
+  display: block;
+  background-color: #FFC107;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 10px;
+}
+.goodsList image{
+  width: 150px;
+  height: 80px;
+  display: inline-block;
+}
+.goodsList .g-h1{
+  text-align: top;
 }

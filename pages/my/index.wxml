@@ -6,10 +6,6 @@
     <text>{{userInfo.nickName}}</text>
   </view>
   <!-- 底部导航 -->
-  <view class="bottom-nav">
-    <button class="" data-index="0" bindtap='changePage'>首页</button>
-    <button class="" data-index="1" bindtap='changePage'>开车</button>
-    <button class="" data-index="2"open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">我</button>
-  </view>
+  <btNav botNavInd="2"></btNav>
 
 </view>

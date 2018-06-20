@@ -17,27 +17,43 @@
   <!-- 房间时间表 -->
   <view class="room-time">
       <view class="time-list">
-        <text class="{{index==timeCurr?'ind':''}}" wx:for="{{timeList}}" wx:key="*this" bindtap='changeTimeList' data-index="{{index}}">{{item.time}}</text>
+        <text class="{{index==timeCurr?'ind':''}}" wx:for="{{timeList}}" wx:key="*this" bindtap='changeTimeList' data-index="{{index}}">{{item.date}}</text>
        </view>
        <view class="room-list">
         <swiper current="{{timeCurr}}" duration="500" class='room-swiper'  bindchange="timeChanging" bindanimationfinish="timeChanged">
           <block wx:for="{{timeList}}" wx:key="*this">
             <swiper-item>
-              <text class="sw-title">{{item.title}}</text>
-              <image src="{{item.url}}" class="slide-image" width="355" height="150"/>
-              <text class="sw-text">{{item.text}}</text>
+              <scroll-view scroll-y="true" style="width: 100%">
+                <view wx:for="{{item.tlist}}" wx:for-item="tlist" wx:key="*this" class='plist'>
+                  <text class="sw-title stext">地点：{{tlist.title}}\n</text>
+                  <text class="sw-title stext">内容：{{tlist.text}}\n</text>
+                  <text class="sw-title stext">情况：{{tlist.info}}\n</text>
+                  <text class="sw-time stext">时间：{{tlist.time}}\n</text>
+                  <text class="sw-que">{{tlist.que}}\n开局\n</text>
+                  <!-- <image src="{{item.url}}" class="slide-image" width="355" height="150"/> -->
+                  <text class="sw-price">{{tlist.price}}</text>
+                </view>
+              </scroll-view>
+
             </swiper-item>
           </block>
         </swiper>
        </view>
   </view>
 
-  <!-- 底部导航 -->
-  <view class="bottom-nav">
-    <button class="" data-index="0" bindtap='changePage'>首页</button>
-    <button class="" data-index="1" bindtap='changePage'>开车</button>
-    <button class="" data-index="2"open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">我</button>
+  <!-- 商品列表 -->
+  <view class='goodsList'>
+      <view class='g-list' wx:for="{{goodsList}}" wx:key="*this">
+        <text class="g-title">{{item.title}}</text>
+        <view class='g-list' wx:for="{{item.list}}" wx:for-item="list" wx:key="*this">
+          <image src="{{list.url}}" class="slide-image" width="150" height="80"/>
+          <text class="g-h1">{{list.h1}}</text>
+          <text class="g-h2">{{list.h2}}</text>
+          <text class="g-Bprice">{{list.Bprice}}</text>
+          <text class="g-price">{{list.price}}</text>
+        </view>
+      </view>
   </view>
-
-
+  <!-- 底部导航 -->
+  <btNav botNavInd="0"></btNav>
 </view>

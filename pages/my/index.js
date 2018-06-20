@@ -73,27 +73,16 @@ Page({
   changePage: function (e) {
     let ind = e.target.dataset.index;
     console.log(ind);
-    let u;
+
     if (ind == 0) {
-      u = '/pages/index/index';
+      wx.reLaunch({
+        url: '/pages/index/index'
+      })
     } else if (ind == 1) {
-      u = '/pages/other/index';
-    }
-    wx.navigateTo({
-      url: u
-    })
-  },
-  onGotUserInfo: function (e) {
-    console.log(e.detail.userInfo);
-    if (app.globalData.userInfo == null){
-      app.globalData.userInfo = e.detail.userInfo
-      this.setData({
-        userInfo: e.detail.userInfo,
-        hasUserInfo: true
+      wx.navigateTo({
+        url: '/pages/other/index'
       })
     }
-    wx.navigateTo({
-      url: '/pages/my/index'
-    })
+
   }
 })

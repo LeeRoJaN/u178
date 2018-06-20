@@ -69,16 +69,12 @@ Page({
   changePage: function (e) {
     let ind = e.target.dataset.index;
     console.log(ind);
-    let u;
+
     if (ind == 0) {
-      u = '/pages/index/index';
-    } else if (ind == 1) {
-      u = '/pages/other/index';
+      wx.reLaunch({
+        url: '/pages/index/index'
+      })
     }
-    console.log(u);
-    wx.navigateTo({
-      url: u
-    })
   },
   onGotUserInfo: function (e) {
     console.log(e.detail.userInfo);

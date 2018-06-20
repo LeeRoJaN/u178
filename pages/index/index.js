@@ -12,6 +12,7 @@ Page({
     bannerCurr: 0,//banner位当前展示的下标
     bannerIsChanging:false,
     bannerIsChanged:true,
+    botNavInd:0,//底部导航当前展示下标
 
     // imgUrls: [
     //   'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
@@ -37,24 +38,123 @@ Page({
     ],
     timeList:[
       {
-        time:"2018-05-21",
-        title: '标题党已',
-        url: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        text: '阿萨德发射点发蜡炬森'
+        date:"2018-05-20",
+        tlist:[
+          {
+            title: '当阿拉斯加老大',
+            // url: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+            text: '路口的，广东麦克风给客户发',
+            info: 'asdafsdfasdasdfasdfasda',
+            time: '14：59-18：59',
+            que: '缺5人',
+            price: '99.9/次',
+          },
+        ],
+
       },
       {
-        time: "2018-05-22",
-        title: '标题党而',
-        url: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        text: '阿萨德发射点发蜡炬森'
+        date: "2018-05-21",
+        tlist: [
+          {
+            title: '兔兔预估结果',
+            // url: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+            text: '阿萨德发射点发蜡炬森',
+            info: 'asdafsdfasdasdfasdfasda',
+            time: '14：59-18：59',
+            que: '缺5人',
+            price: '99.9/次',
+          },
+          {
+            title: '兔兔预估结果',
+            // url: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+            text: '阿萨德发射点发蜡炬森',
+            info: 'asdafsdfasdasdfasdfasda',
+            time: '14：59-18：59',
+            que: '缺5人',
+            price: '99.9/次',
+          },
+        ],
+
       },
       {
-        time: "2018-05-23",
-        title: '标题党三',
-        url: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        text: '阿萨德发射点发蜡炬森'
-      }
+        date: "2018-05-22",
+        tlist: [
+          {
+            title: '美女版，内存卡',
+            // url: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+            text: '阿萨德发射点发蜡炬森',
+            info: 'asdafsdfasdasdfasdfasda',
+            time: '14：59-18：59',
+            que: '缺5人',
+            price: '99.9/次',
+          },
+          {
+            title: '美女版，内存卡',
+            // url: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+            text: '阿萨德发射点发蜡炬森',
+            info: 'asdafsdfasdasdfasdfasda',
+            time: '14：59-18：59',
+            que: '缺5人',
+            price: '99.9/次',
+          },
+          {
+            title: '美女版，内存卡',
+            // url: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+            text: '阿萨德发射点发蜡炬森',
+            info: 'asdafsdfasdasdfasdfasda',
+            time: '14：59-18：59',
+            que: '缺5人',
+            price: '99.9/次',
+          },
+        ],
+
+      },
     ],
+    goodsList:[
+      {
+        title:'阿隆索的加拉斯',
+        list:[{
+          url:'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+          h1:'发挥好风光',
+          h2:'规划局法规及',
+          Bprice:'12',
+          price:'1212',
+        }, {
+          url: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+          h1: '发挥好风光',
+          h2: '规划局法规及',
+          Bprice: '12',
+          price: '1212',
+          }, {
+            url: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+            h1: '发挥好风光',
+            h2: '规划局法规及',
+            Bprice: '12',
+            price: '1212',
+          },
+        ]
+      },
+      {
+        title: '阿隆索的加拉斯',
+        list: [{
+          url: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+          h1: '发挥好风光',
+          h2: '规划局法规及',
+          Bprice: '12',
+          price: '1212',
+        }]
+      },
+      {
+        title: '阿隆索的加拉斯',
+        list: [{
+          url: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+          h1: '发挥好风光',
+          h2: '规划局法规及',
+          Bprice: '12',
+          price: '1212',
+        }]
+      },
+    ]
   },
   //事件处理函数
   bindViewTap: function() {
@@ -193,33 +293,6 @@ Page({
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
-    })
-  },
-  changePage:function(e){
-    let ind = e.target.dataset.index;
-    console.log(ind);
-    let u;
-    if(ind == 0){
-      u = '/pages/index/index';
-    }else if(ind == 1){
-      u = '/pages/other/index';
-    }
-    wx.navigateTo({
-      url: u
-    })
-  },
-  onGotUserInfo:function(e){
-    console.log(e.detail.userInfo);
-    console.log(app.globalData.userInfo);
-    if (app.globalData.userInfo == null) {
-      app.globalData.userInfo = e.detail.userInfo
-      this.setData({
-        userInfo: e.detail.userInfo,
-        hasUserInfo: true
-      })
-    }
-    wx.navigateTo({
-      url: '/pages/my/index'
     })
   },
   /**

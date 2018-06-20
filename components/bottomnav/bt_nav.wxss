@@ -1,0 +1,17 @@
+/* components/bottomnav/bt_nav.wxss */
+/* 公共底部导航 */
+.bottom-nav{
+  position: fixed;
+  bottom: 30px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #000;
+  color: #fff;
+}
+.ind{
+  background-color: #ccc;
+}
