@@ -2,6 +2,7 @@
 <view class="container">
   <!-- 顶部轮播 -->
   <view class="sw-wrap">
+    <!-- 上一个按钮 -->
     <button class="sw-btn-pre" bindtap='bannerPre'></button>
     <swiper indicator-dots="true" current="{{bannerCurr}}" duration="500" class='swiper' circular="true" bindchange="isChanging" bindanimationfinish="isChanged">
       <block wx:for="{{topBanner}}" wx:key="*this">
@@ -12,13 +13,16 @@
         </swiper-item>
       </block>
     </swiper>
+    <!-- 下一个按钮 -->
     <button class="sw-btn-next" bindtap='bannerNext'></button>
   </view>
   <!-- 房间时间表 -->
   <view class="room-time">
+    <!-- 时间节点列表 -->
       <view class="time-list">
         <text class="{{index==timeCurr?'ind':''}}" wx:for="{{timeList}}" wx:key="*this" bindtap='changeTimeList' data-index="{{index}}">{{item.date}}</text>
        </view>
+       <!-- 房间列表 -->
        <view class="room-list">
         <swiper current="{{timeCurr}}" duration="500" class='room-swiper'  bindchange="timeChanging" bindanimationfinish="timeChanged">
           <block wx:for="{{timeList}}" wx:key="*this">
@@ -44,13 +48,17 @@
   <!-- 商品列表 -->
   <view class='goodsList'>
       <view class='g-list' wx:for="{{goodsList}}" wx:key="*this">
+        <!-- 栏目title -->
         <text class="g-title">{{item.title}}</text>
+        <!-- 列表 -->
         <view class='g-list' wx:for="{{item.list}}" wx:for-item="list" wx:key="*this">
           <image src="{{list.url}}" class="slide-image" width="150" height="80"/>
-          <text class="g-h1">{{list.h1}}</text>
-          <text class="g-h2">{{list.h2}}</text>
-          <text class="g-Bprice">{{list.Bprice}}</text>
-          <text class="g-price">{{list.price}}</text>
+          <view class='g-tt'>
+            <text class="g-h1">{{list.h1}}</text>
+            <text class="g-h2">{{list.h2}}\n</text>
+            <text class="g-Bprice">¥{{list.Bprice}}</text>
+            <text class="g-price">{{list.price}}</text>
+          </view>
         </view>
       </view>
   </view>

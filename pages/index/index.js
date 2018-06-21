@@ -121,8 +121,8 @@ Page({
           price:'1212',
         }, {
           url: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-          h1: '发挥好风光',
-          h2: '规划局法规及',
+          h1: 'dgsdfgsdf阿萨德发送大苏打',
+          h2: 'asdfasdf阿斯达发送到发送到',
           Bprice: '12',
           price: '1212',
           }, {

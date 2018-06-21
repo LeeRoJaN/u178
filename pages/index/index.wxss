@@ -88,7 +88,7 @@
 }
 /* 商品列表 */
 .goodsList{
-
+  width: 100%;
 }
 .goodsList .g-title{
   display: block;
@@ -98,10 +98,41 @@
   padding-left: 10px;
 }
 .goodsList image{
-  width: 150px;
-  height: 80px;
+  width: 40%;
+  height: 80px; 
   display: inline-block;
 }
+.goodsList .g-tt{
+  width: 55%;
+  float: right;
+  padding-left: 5%;
+}
 .goodsList .g-h1{
-  text-align: top;
+  display: inline-block;
+  width: 50%;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  font-size: 16px;
+}
+.goodsList .g-h2{
+  display: inline-block;
+  width: 40%;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+  color: #ccc;
+}
+.goodsList .g-Bprice{
+  font-size: 18px;
+  color: #F44336;
+}
+.goodsList .g-price{
+  text-decoration: line-through;
+  font-size: 16px;
+  color: #ccc;
+}
+.goodsList .g-price{
+
 }

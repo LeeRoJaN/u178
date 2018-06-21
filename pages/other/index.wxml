@@ -1,7 +1,12 @@
 <!--pages/other/index.wxml-->
 <view class="container">
-
-
+  <view class="room">
+    <image src="{{roomurl}}" class="slide-image" width="355" height="150"/>
+  </view>
+  <view class="people">
+  </view>
+  <view class="join">
+  </view>
   <!-- 底部导航 -->
   <btNav botNavInd="1"></btNav>
 

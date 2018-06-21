@@ -1,1 +1,13 @@
 /* pages/other/index.wxss */
+
+.room{
+  background: #3e3737;
+  text-align: center;
+  height: 260px;
+  width: 100%;
+}
+.room image{
+  width: 280px;
+  height: 150px;
+  margin-top: 40px;
+}
